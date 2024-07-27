@@ -7,7 +7,7 @@ import {
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/screen/Home';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   Button,
   Image,
@@ -18,7 +18,6 @@ import {
 } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import DrawerData from './src/components/Drawer';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -98,20 +97,22 @@ function App(): React.JSX.Element {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = 'home';
+              iconName = 'home-outline';
             } else if (route.name === 'Category') {
               iconName = 'menu';
             } else if (route.name === 'Cart') {
-              iconName = 'shopping-cart';
+              iconName = 'cart-outline';
             } else if (route.name === 'Wishlist') {
-              iconName = 'heart';
+              iconName = 'cards-heart-outline';
             } else if (route.name === 'Profile') {
-              iconName = 'user';
+              iconName = 'account-outline';
             }
 
             return <Icon name={iconName} size={size} color={color} />;
           },
-          headerShown : false
+          headerShown : false,
+          tabBarActiveTintColor: '#ff4c3b', // Set the active tab color
+    tabBarInactiveTintColor: '#222222',
         })}>
         <Tab.Screen name="Home" component={HomeStackNavigator} />
         <Tab.Screen name="Category" component={CategoryStackNavigator} />
