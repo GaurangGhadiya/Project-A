@@ -17,6 +17,10 @@ import {
   View,
 } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Category from './src/screen/Category';
+import Wishlist from './src/screen/Wishlist';
+import Cart from './src/screen/Cart';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 const Tab = createBottomTabNavigator();
@@ -40,7 +44,7 @@ function HomeStackNavigator() {
 function CategoryStackNavigator() {
   return (
     <CategoryStack.Navigator  screenOptions={{ headerShown: false }}>
-      <CategoryStack.Screen name="Home" component={Home} />
+      <CategoryStack.Screen name="Category" component={Category} />
       <CategoryStack.Screen name="Details" component={Home} />
     </CategoryStack.Navigator>
   );
@@ -49,7 +53,7 @@ function CategoryStackNavigator() {
 function CartStackNavigator() {
   return (
     <CartStack.Navigator  screenOptions={{ headerShown: false }}>
-      <CartStack.Screen name="Home" component={Home} />
+      <CartStack.Screen name="Cart" component={Cart} />
       <CartStack.Screen name="Details" component={Home} />
     </CartStack.Navigator>
   );
@@ -58,7 +62,7 @@ function CartStackNavigator() {
 function WishlistStackNavigator() {
   return (
     <WishlistStack.Navigator screenOptions={{ headerShown: false }}>
-      <WishlistStack.Screen name="Home" component={Home} />
+      <WishlistStack.Screen name="Wishlist" component={Wishlist} />
       <WishlistStack.Screen name="Details" component={Home} />
     </WishlistStack.Navigator>
   );
@@ -90,6 +94,8 @@ function App(): React.JSX.Element {
   return splashVisible ? (
     <SplashScreen />
   ) : (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
@@ -108,11 +114,13 @@ function App(): React.JSX.Element {
               iconName = 'account-outline';
             }
 
-            return <Icon name={iconName} size={size} color={color} />;
+            return <Icon name={iconName} size={size} color={color} style={{marginTop : 5}}/>;
           },
           headerShown : false,
           tabBarActiveTintColor: '#ff4c3b', // Set the active tab color
     tabBarInactiveTintColor: '#222222',
+    tabBarLabelStyle: { fontSize: 14,marginBottom : 5 },
+    tabBarStyle: { height: 55 },
         })}>
         <Tab.Screen name="Home" component={HomeStackNavigator} />
         <Tab.Screen name="Category" component={CategoryStackNavigator} />
@@ -121,6 +129,7 @@ function App(): React.JSX.Element {
         <Tab.Screen name="Profile" component={ProfileStackNavigator} />
       </Tab.Navigator>
     </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 
