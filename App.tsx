@@ -21,6 +21,7 @@ import Category from './src/screen/Category';
 import Wishlist from './src/screen/Wishlist';
 import Cart from './src/screen/Cart';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import Profile from './src/screen/Profile';
 
 
 const Tab = createBottomTabNavigator();
@@ -34,8 +35,7 @@ const ProfileStack = createNativeStackNavigator();
 function HomeStackNavigator() {
   return (
     <HomeStack.Navigator  screenOptions={{ headerShown: false }}>
-      <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Details" component={Home} />
+      <HomeStack.Screen name="HomeMain" component={Home} />
     </HomeStack.Navigator>
   );
 }
@@ -44,8 +44,7 @@ function HomeStackNavigator() {
 function CategoryStackNavigator() {
   return (
     <CategoryStack.Navigator  screenOptions={{ headerShown: false }}>
-      <CategoryStack.Screen name="Category" component={Category} />
-      <CategoryStack.Screen name="Details" component={Home} />
+      <CategoryStack.Screen name="CategoryMain" component={Category} />
     </CategoryStack.Navigator>
   );
 }
@@ -53,8 +52,7 @@ function CategoryStackNavigator() {
 function CartStackNavigator() {
   return (
     <CartStack.Navigator  screenOptions={{ headerShown: false }}>
-      <CartStack.Screen name="Cart" component={Cart} />
-      <CartStack.Screen name="Details" component={Home} />
+      <CartStack.Screen name="CartMain" component={Cart} />
     </CartStack.Navigator>
   );
 }
@@ -62,8 +60,7 @@ function CartStackNavigator() {
 function WishlistStackNavigator() {
   return (
     <WishlistStack.Navigator screenOptions={{ headerShown: false }}>
-      <WishlistStack.Screen name="Wishlist" component={Wishlist} />
-      <WishlistStack.Screen name="Details" component={Home} />
+      <WishlistStack.Screen name="WishlistMain" component={Wishlist} />
     </WishlistStack.Navigator>
   );
 }
@@ -71,8 +68,7 @@ function WishlistStackNavigator() {
 function ProfileStackNavigator() {
   return (
     <ProfileStack.Navigator  screenOptions={{ headerShown: false }}>
-      <ProfileStack.Screen name="Home" component={Home} />
-      <ProfileStack.Screen name="Details" component={Home} />
+      <ProfileStack.Screen name="ProfileMain" component={Profile} />
     </ProfileStack.Navigator>
   );
 }
