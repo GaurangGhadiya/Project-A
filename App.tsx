@@ -40,7 +40,6 @@ function HomeStackNavigator() {
       <HomeStack.Screen
         name="Search"
         component={Search}
-        options={{tabBarStyle: {display: 'none'}}}
       />
     </HomeStack.Navigator>
   );

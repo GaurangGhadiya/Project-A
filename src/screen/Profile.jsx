@@ -144,14 +144,15 @@ const Profile = () => {
             keyExtractor={item => item.title}
             numColumns={2}
             columnWrapperStyle={styles.row}
-            nestedScrollEnabled
+            nestedScrollEnabled={true}
+            scrollEnabled={false} 
           />
           {/* </View> */}
         </View>
         <View style={styles.options}>
           {options?.map(v => (
             <>
-            <View style={styles.divider}></View>
+            <View style={styles.divider} keyExtractor={v?.title}></View>
               <View style={styles.outerOption}>
                 <View style={styles.leftOption}>
                 <View>{v?.icon}</View>
@@ -171,7 +172,7 @@ const Profile = () => {
         <View style={styles.options}>
           {bottomOption?.map(v => (
             <>
-            <View style={styles.divider}></View>
+            <View style={styles.divider} keyExtractor={v.title}></View>
               <View style={styles.outerOption}>
               <View style={styles.leftOption}>
                 <View>{v?.icon}</View>

@@ -16,6 +16,8 @@ import Swiper from 'react-native-swiper';
 import HorizontalProduct from '../components/HorizontalProduct';
 import VerticalProduct from '../components/VerticalProduct';
 import { useNavigation } from '@react-navigation/native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
+
 
 const images = {
   women: require('../assets/logo.png'),
@@ -146,10 +148,6 @@ const Home = () => {
             <Icon name={'magnify'} size={20} color={'#777777'} onPress={() => navigation.navigate('Search')}/>
             <Text
               style={styles.inputbox}
-              // placeholder="Search..."
-              // placeholderTextColor="#777777"
-              // selectionColor="#ff4c3b"
-              // onPress={() => navigation.navigate('Search')}
             >Search...</Text>
           </TouchableOpacity>
         </View>
@@ -161,7 +159,8 @@ const Home = () => {
             keyExtractor={item => item.id}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
-            nestedScrollEnabled
+            nestedScrollEnabled={true}
+                scrollEnabled={false} 
           />
         </View>
 
@@ -218,7 +217,8 @@ const Home = () => {
               keyExtractor={item => item.id}
               horizontal={false}
               showsHorizontalScrollIndicator={false}
-              nestedScrollEnabled
+              nestedScrollEnabled={true}
+                scrollEnabled={false} 
             />
           </View>
         </View>
@@ -245,7 +245,8 @@ const Home = () => {
               keyExtractor={item => item.id}
               numColumns={2}
               columnWrapperStyle={styles.row}
-              nestedScrollEnabled
+              nestedScrollEnabled={true}
+                scrollEnabled={false} 
             />
           </View>
           <Image
@@ -263,7 +264,8 @@ const Home = () => {
               keyExtractor={item => item.id}
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              nestedScrollEnabled
+              nestedScrollEnabled={true}
+                scrollEnabled={false} 
             />
           </View>
         </View>
@@ -280,7 +282,8 @@ const Home = () => {
                 keyExtractor={item => item.id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                nestedScrollEnabled
+                nestedScrollEnabled={true}
+                scrollEnabled={false} 
               />
             </View>
 
@@ -293,8 +296,9 @@ const Home = () => {
                 keyExtractor={item => item.id}
                 numColumns={2}
                 columnWrapperStyle={styles.row}
-                nestedScrollEnabled
-              />
+                nestedScrollEnabled={true}
+                scrollEnabled={false} 
+                />
             </View>
           </View>
         </View>

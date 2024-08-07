@@ -81,7 +81,7 @@ const Search = () => {
       <View style={styles.recentSearch}>
           <Text style={styles.title}>Recent Search</Text>
           {recentSearch?.map(v => (<>
-          <View style={styles.list}>
+          <View style={styles.list} key={v}>
             <View style={styles.leftSearch}>
             <Icon name={'clock-outline'} size={20} color={'#777777'} />
             <Text style={styles.searchtext}>{v}</Text>
@@ -99,7 +99,9 @@ const Search = () => {
             keyExtractor={item => item.id}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
-            nestedScrollEnabled
+            
+            nestedScrollEnabled={true}
+            scrollEnabled={false} 
           />
       </View>
       <View style={styles.recentSearch} marginTop={10} paddingTop={7}>
@@ -110,7 +112,8 @@ const Search = () => {
                 keyExtractor={item => item.id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                nestedScrollEnabled
+                nestedScrollEnabled={true}
+                scrollEnabled={false} 
               />
       </View>
       <View style={styles.recentSearch} marginTop={10} paddingTop={7}>
@@ -121,7 +124,8 @@ const Search = () => {
                 keyExtractor={item => item.id}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                nestedScrollEnabled
+                nestedScrollEnabled={true}
+                scrollEnabled={false} 
               />
       </View>
       <View style={styles.recentSearch} marginTop={10} paddingTop={7}>
@@ -132,7 +136,8 @@ const Search = () => {
                 keyExtractor={item => item.id}
                 numColumns={2}
                 columnWrapperStyle={styles.row}
-                nestedScrollEnabled
+                nestedScrollEnabled={true}
+                scrollEnabled={false} 
               />
       </View>
       <View style={styles.recentSearch} marginTop={10} paddingTop={7}>
@@ -144,7 +149,7 @@ const Search = () => {
             <View style={styles.outerMain}>
             {['Mobiles', 'Shoes', 'T-shirts', 'Laptops', 'Watches', 'Headphones', 'Jeans','Mobiles', 'Shoes', 'T-shirts', 'Pent']?.map(v => (<>
               {/* <View key={v} style={styles.outerMoreText}> */}
-                <Text style={styles.moreText}>{v}</Text>
+                <Text style={styles.moreText} key={v}>{v}</Text>
               {/* </View> */}
               </>))}
             </View>
