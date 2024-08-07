@@ -22,6 +22,7 @@ import Wishlist from './src/screen/Wishlist';
 import Cart from './src/screen/Cart';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Profile from './src/screen/Profile';
+import Search from './src/screen/Search';
 
 
 const Tab = createBottomTabNavigator();
@@ -36,6 +37,7 @@ function HomeStackNavigator() {
   return (
     <HomeStack.Navigator  screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="HomeMain" component={Home} />
+      <HomeStack.Screen name="Search" component={Search} />
     </HomeStack.Navigator>
   );
 }

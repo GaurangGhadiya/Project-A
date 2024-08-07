@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Swiper from 'react-native-swiper';
 import HorizontalProduct from '../components/HorizontalProduct';
 import VerticalProduct from '../components/VerticalProduct';
+import { useNavigation } from '@react-navigation/native';
 
 const images = {
   women: require('../assets/logo.png'),
@@ -26,7 +27,7 @@ const images = {
   electronics: require('../assets/logo.png'),
 };
 
-const data = [
+export const data = [
   {
     id: '1',
     title: 'Women',
@@ -83,6 +84,7 @@ const data = [
 ];
 
 const Home = () => {
+  const navigation = useNavigation()
   const renderItem = ({item}) => (
     <View style={styles.item}>
       <View style={styles.imageOuter}>
@@ -140,15 +142,16 @@ const Home = () => {
           </View>
         </View>
         <View style={styles.outerSearch}>
-          <View style={styles.search}>
-            <Icon name={'magnify'} size={20} color={'#777777'} />
-            <TextInput
+          <TouchableOpacity onPress={() => navigation.navigate('Search')} style={styles.search}>
+            <Icon name={'magnify'} size={20} color={'#777777'} onPress={() => navigation.navigate('Search')}/>
+            <Text
               style={styles.inputbox}
-              placeholder="Search..."
-              placeholderTextColor="#777777"
-              selectionColor="#ff4c3b"
-            />
-          </View>
+              // placeholder="Search..."
+              // placeholderTextColor="#777777"
+              // selectionColor="#ff4c3b"
+              // onPress={() => navigation.navigate('Search')}
+            >Search...</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.category}>
@@ -252,7 +255,7 @@ const Home = () => {
             style={styles.bannerImg}
           />
 
-          <Text style={styles.styleLeft2}>Biggest Deales on Top Brands</Text>
+          <Text style={styles.styleLeft2}>Biggest Deals on Top Brands</Text>
           <View style={styles.brands}>
             <FlatList
               data={data}
@@ -333,9 +336,10 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     width: '93%',
     // paddingHorizontal : 3
-    color: 'black',
+    color: '#777777',
     paddingLeft: 10,
     fontSize: 16,
+    paddingVertical : 7
   },
   search: {
     backgroundColor: 'white',
