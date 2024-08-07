@@ -1,8 +1,9 @@
-import { FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import VerticalProduct from '../components/VerticalProduct';
 import { data } from './Home';
+import { useNavigation } from '@react-navigation/native';
 
 const renderItemTabsKids = ({item}) => (
   <View style={{marginRight: 15}}>
@@ -48,18 +49,20 @@ const renderItem = ({item}) => (
 );
 const recentSearch = ['Pink Hoodie t-shirt', 'Man Blue Denim jacket', 'Travaling Bag']
 const Search = () => {
+  const navigation = useNavigation()
   return (
     <SafeAreaView>
     <ScrollView style={styles.main}  >
       <View style={styles.header}>
-        <View
+        <TouchableOpacity
+       onPress={() => navigation.popToTop()}
           style={{
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'row',
           }}>
           <Icon name={'arrow-left'} size={28} color={'#222222'} />
-        </View>
+        </TouchableOpacity>
         <View style={styles.outerSearch}>
           <View  style={styles.search}>
             <Icon name={'magnify'} size={20} color={'#777777'} />
@@ -170,6 +173,7 @@ const styles = StyleSheet.create({
     color: 'black',
     paddingLeft: 10,
     fontSize: 16,
+    paddingVertical: 10
   },
   search: {
     backgroundColor: 'white',

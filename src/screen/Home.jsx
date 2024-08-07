@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
     color: '#777777',
     paddingLeft: 10,
     fontSize: 16,
-    paddingVertical : 7
+    paddingVertical : 6
   },
   search: {
     backgroundColor: 'white',
