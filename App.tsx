@@ -24,6 +24,9 @@ import Cart from './src/screen/Cart';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import Profile from './src/screen/Profile';
 import Search from './src/screen/Search';
+import ProfileBrforeLogin from './src/screen/ProfileBrforeLogin';
+import SignIn from './src/screen/SignIn';
+import SignUp from './src/screen/SignUp';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -74,6 +77,9 @@ function ProfileStackNavigator() {
   return (
     <ProfileStack.Navigator screenOptions={{headerShown: false}}>
       <ProfileStack.Screen name="ProfileMain" component={Profile} />
+      <ProfileStack.Screen name="ProfileBrforeLogin" component={ProfileBrforeLogin} />
+      <ProfileStack.Screen name="SignIn" component={SignIn} />
+      <ProfileStack.Screen name="SignUp" component={SignUp} />
     </ProfileStack.Navigator>
   );
 }

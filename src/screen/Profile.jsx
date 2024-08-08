@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const topOption = [
   {
@@ -81,6 +82,7 @@ desc : "Name, Email, Password..."
 ];
 
 const Profile = () => {
+  const navigation = useNavigation()
   const renderItemOffer = ({item}) => (
     <View style={styles.itemOffer}>
       <View>{item.icon}</View>
@@ -191,7 +193,7 @@ const Profile = () => {
         </View>
 
         <View style={styles.logout}>
-          <TouchableOpacity style={styles.logoutBtn}>
+          <TouchableOpacity style={styles.logoutBtn} onPress={() => navigation.navigate('ProfileBrforeLogin')}>
           <Icon name={'power'} size={24} color={'#444444'} />
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
