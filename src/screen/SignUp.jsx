@@ -85,7 +85,7 @@ const SignUp = () => {
             </View>
 </View>
 
-<View style={styles.iconsGroup} marginBottom={50}>
+<View style={styles.iconsGroup} marginBottom={30}>
     <Text style={styles.bottomText}>Already have an account?</Text>
     <Text style={styles.bottomText2} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
 </View>

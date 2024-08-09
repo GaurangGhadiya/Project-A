@@ -26,7 +26,7 @@ const ProfileBrforeLogin = () => {
             <Icon name={'arrow-left'} size={28} color={'#222222'} />
             <Text style={styles.title}>Project A</Text>
           </View>
-          <View style={styles.rightIcon} onPress={() => navigation.navigate('Search')}>
+          <View style={styles.rightIcon}>
             <Icon name={'bell-outline'} size={24} color={'#222222'} />
             {/* <Icon
           name={'cards-heart-outline'}
@@ -35,6 +35,7 @@ const ProfileBrforeLogin = () => {
           style={styles.iconset}
         /> */}
             <Icon
+             onPress={() => navigation.navigate('Search')}
               name={'magnify'}
               size={26}
               color={'#222222'}

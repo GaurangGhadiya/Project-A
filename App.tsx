@@ -27,6 +27,9 @@ import Search from './src/screen/Search';
 import ProfileBrforeLogin from './src/screen/ProfileBrforeLogin';
 import SignIn from './src/screen/SignIn';
 import SignUp from './src/screen/SignUp';
+import ForgotPassword from './src/screen/ForgotPassword';
+import ResetPassword from './src/screen/ResetPassword';
+import OtpVerification from './src/screen/OtpVerification';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -80,6 +83,9 @@ function ProfileStackNavigator() {
       <ProfileStack.Screen name="ProfileBrforeLogin" component={ProfileBrforeLogin} />
       <ProfileStack.Screen name="SignIn" component={SignIn} />
       <ProfileStack.Screen name="SignUp" component={SignUp} />
+      <ProfileStack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <ProfileStack.Screen name="OtpVerification" component={OtpVerification} />
+      <ProfileStack.Screen name="ResetPassword" component={ResetPassword} />
     </ProfileStack.Navigator>
   );
 }
@@ -100,7 +106,7 @@ function App(): React.JSX.Element {
 
   const getTabBarStyle = (route: any) => {
     const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomeMain';
-    if (routeName === 'Search') {
+    if (routeName === 'Search' || routeName === 'SignIn' || routeName === 'SignUp' || routeName === 'ForgotPassword' || routeName === 'ResetPassword' || routeName === 'OtpVerification') {
       return {display: 'none'};
     }
     return {height: 55};

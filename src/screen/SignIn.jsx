@@ -44,7 +44,7 @@ const SignIn = () => {
         secureTextEntry
       />
     </View>
-    <Text style={styles.forgot}>Forgot Password ?</Text>
+    <Text style={styles.forgot} onPress={() => navigation.navigate('ForgotPassword')}>Forgot Password ?</Text>
 
     <TouchableOpacity style={styles.signup} onPress={() => navigation.navigate('HomeMain')}>
             <Text style={styles.signupText}>SIGN IN</Text>
@@ -70,7 +70,7 @@ const SignIn = () => {
             </View>
 </View>
 
-<View style={styles.iconsGroup} marginBottom={90}>
+<View style={styles.iconsGroup} marginBottom={140}>
     <Text style={styles.bottomText}>Don't have an account?</Text>
     <Text style={styles.bottomText2} onPress={() => navigation.navigate('SignUp')}>Create Now</Text>
 </View>
