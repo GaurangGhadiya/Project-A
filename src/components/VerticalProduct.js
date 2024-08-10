@@ -1,10 +1,12 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {StarRatingDisplay} from 'react-native-star-rating-widget';
+import { useNavigation } from '@react-navigation/native';
 
 const VerticalProduct = () => {
+  const navigation = useNavigation()
   return (
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('ProductDetails')}>
       <View>
         <Image
           source={require('../assets/logo.png')}
@@ -30,7 +32,7 @@ const VerticalProduct = () => {
         <Text style={styles.originalPrice}>₹599.00</Text>
         <Text style={styles.percentage}>(15% off)</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

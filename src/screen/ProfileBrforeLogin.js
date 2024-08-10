@@ -92,7 +92,7 @@ const ProfileBrforeLogin = () => {
               />
               <View>
 
-            <Text style={styles.optionText}>Free Deliveryon first order - for </Text>
+            <Text style={styles.optionText}>Free Delivery on first order - for </Text>
             <Text style={styles.optionText}>top categpries</Text>
               </View>
 

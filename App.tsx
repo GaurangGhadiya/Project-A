@@ -30,6 +30,8 @@ import SignUp from './src/screen/SignUp';
 import ForgotPassword from './src/screen/ForgotPassword';
 import ResetPassword from './src/screen/ResetPassword';
 import OtpVerification from './src/screen/OtpVerification';
+import Shop from './src/screen/Shop';
+import ProductDetails from './src/screen/ProductDetails';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -43,10 +45,9 @@ function HomeStackNavigator() {
   return (
     <HomeStack.Navigator screenOptions={{headerShown: false}}>
       <HomeStack.Screen name="HomeMain" component={Home} />
-      <HomeStack.Screen
-        name="Search"
-        component={Search}
-      />
+      <HomeStack.Screen name="Search" component={Search} />
+      <HomeStack.Screen name="Shop" component={Shop} />
+      <HomeStack.Screen name="ProductDetails" component={ProductDetails} />
     </HomeStack.Navigator>
   );
 }
@@ -80,7 +81,10 @@ function ProfileStackNavigator() {
   return (
     <ProfileStack.Navigator screenOptions={{headerShown: false}}>
       <ProfileStack.Screen name="ProfileMain" component={Profile} />
-      <ProfileStack.Screen name="ProfileBrforeLogin" component={ProfileBrforeLogin} />
+      <ProfileStack.Screen
+        name="ProfileBrforeLogin"
+        component={ProfileBrforeLogin}
+      />
       <ProfileStack.Screen name="SignIn" component={SignIn} />
       <ProfileStack.Screen name="SignUp" component={SignUp} />
       <ProfileStack.Screen name="ForgotPassword" component={ForgotPassword} />
@@ -106,7 +110,16 @@ function App(): React.JSX.Element {
 
   const getTabBarStyle = (route: any) => {
     const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomeMain';
-    if (routeName === 'Search' || routeName === 'SignIn' || routeName === 'SignUp' || routeName === 'ForgotPassword' || routeName === 'ResetPassword' || routeName === 'OtpVerification') {
+    if (
+      routeName === 'Search' ||
+      routeName === 'SignIn' ||
+      routeName === 'SignUp' ||
+      routeName === 'ForgotPassword' ||
+      routeName === 'ResetPassword' ||
+      routeName === 'OtpVerification' ||
+      routeName === 'Shop' ||
+      routeName === 'ProductDetails' 
+    ) {
       return {display: 'none'};
     }
     return {height: 55};
