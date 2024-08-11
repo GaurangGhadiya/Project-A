@@ -16,6 +16,7 @@ import HorizontalProduct from '../components/HorizontalProduct';
 import CartProduct from '../components/CartProduct';
 import {Modalize} from 'react-native-modalize';
 import VerticalProduct from '../components/VerticalProduct';
+import { useNavigation } from '@react-navigation/native';
 
 const images = {
   women: require('../assets/logo.png'),
@@ -84,6 +85,7 @@ const data = [
 ];
 
 const Cart = () => {
+  const navigation = useNavigation()
   const [drawerType, setDrawerType] = useState(null);
 
   const modalizeRef = useRef(null);
@@ -256,9 +258,9 @@ const Cart = () => {
                 <Text style={styles.bottomPriceValue}>₹280.00</Text>
                 <TouchableOpacity onPress={handleScrollToBottom}><Text  style={styles.bottomPriceDetails}>View Details</Text></TouchableOpacity>
               </View>
-              <View style={styles.bottomPriceRight}>
+              <TouchableOpacity style={styles.bottomPriceRight} onPress={() => navigation.navigate('DeliveryDetails')}>
                 <Text style={styles.bottomPriceRightText}>PLACE ORDER</Text>
-              </View>
+              </TouchableOpacity>
         </View>
 
       <Modalize ref={modalizeRef} adjustToContentHeight withHandle={false}>

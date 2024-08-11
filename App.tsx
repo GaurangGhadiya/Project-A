@@ -32,6 +32,9 @@ import ResetPassword from './src/screen/ResetPassword';
 import OtpVerification from './src/screen/OtpVerification';
 import Shop from './src/screen/Shop';
 import ProductDetails from './src/screen/ProductDetails';
+import DeliveryDetails from './src/screen/DeliveryDetails';
+import PaymentDetails from './src/screen/PaymentDetails';
+import OrderPlaced from './src/screen/OrderPlaced';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -65,6 +68,9 @@ function CartStackNavigator() {
   return (
     <CartStack.Navigator screenOptions={{headerShown: false}}>
       <CartStack.Screen name="CartMain" component={Cart} />
+      <CartStack.Screen name="DeliveryDetails" component={DeliveryDetails} />
+      <CartStack.Screen name="PaymentDetails" component={PaymentDetails} />
+      <CartStack.Screen name="OrderPlaced" component={OrderPlaced} />
     </CartStack.Navigator>
   );
 }
@@ -118,7 +124,10 @@ function App(): React.JSX.Element {
       routeName === 'ResetPassword' ||
       routeName === 'OtpVerification' ||
       routeName === 'Shop' ||
-      routeName === 'ProductDetails' 
+      routeName === 'ProductDetails' ||
+      routeName === 'DeliveryDetails' ||
+      routeName === 'PaymentDetails' ||
+      routeName === 'OrderPlaced' 
     ) {
       return {display: 'none'};
     }
